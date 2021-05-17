@@ -1,0 +1,17 @@
+\usepackage[latexmk]{lwarp}
+
+\renewcommand*{\LateximageFontScale}{1.5}
+
+\usepackage{lipsum}
+\usepackage{soul}
+\usepackage{fullpage}
+\newcommand{\citeme}[1]{%
+  \ifstrempty{#1}{\textsuperscript{\hl{[citation needed]}}}{\textsuperscript{\hl{[cite: #1]}}}%
+}
+\newcommand{\todo}[1]{%
+  \hl{[TODO: #1]}%
+}
+
+% Strikeout text for completed items
+\usepackage{ulem}
+\newcommand{\done}[1]{\sout{#1}}
