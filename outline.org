@@ -1,0 +1,10 @@
+#+TITLE: Write an Engaging Title
+#+AUTHOR: Mark Wolfman
+
+* TODO Abstract
+* [0/0] Introduction
+* [0/0] Material and Methods
+* [0/0] Results
+* [0/0] Discussion
+* TODO Conclusion
+* [0/0] Figures
