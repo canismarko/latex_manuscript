@@ -9,11 +9,17 @@ JOBNAME=${BASE}-${BRANCH}-${VERSION}-${HASH}
 SUPPJOBNAME=${BASE}-supplement-${BRANCH}-${VERSION}-${HASH}
 LWARP=lwarpmk
 FIGDIR=figures
+BIBFILE=refs.bib
+FULL_BIBFILE=${HOME}/research/literature/refs.bib
 
 .PHONY: deploy clean cleanall docx all
 
 all:
 	${LATEXMK}
+
+refs:
+	abbreviate-journals ${FULL_BIBFILE} -o ${BIBFILE} -L main.aux -L supplement.aux --force
+
 
 clean:
 	${LATEXMK} -c
