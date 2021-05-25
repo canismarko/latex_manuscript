@@ -3,15 +3,35 @@
 \renewcommand*{\LateximageFontScale}{1.5}
 
 \usepackage{lipsum}
+\usepackage{color}
 \usepackage{soul}
 \usepackage{fullpage}
-\newcommand{\citeme}[1]{%
-  \ifstrempty{#1}{\textsuperscript{\hl{[citation needed]}}}{\textsuperscript{\hl{[cite: #1]}}}%
-}
-\newcommand{\todo}[1]{%
-  \hl{[TODO: #1]}%
-}
 
 % Strikeout text for completed items
 \usepackage{ulem}
 \newcommand{\done}[1]{\sout{#1}}
+
+% Tools for leaving todo notes around
+\usepackage[colorinlistoftodos]{todonotes}
+\definecolor{tfcolor}{HTML}{74bbfd} % MPL blue
+\definecolor{othercolor}{HTML}{fd7d0a}
+\definecolor{mwcolor}{HTML}{8af67d}
+\definecolor{citecolor}{HTML}{c696f0} % MPL purple
+
+\newcommand{\citeme}[1]{%
+  \todo[color=citecolor]{%
+  \ifstrempty{#1}{[citation needed]}{[cite: #1]}%
+  }%
+}
+\newcommand{\mw}[2]{%
+  \sethlcolor{mwcolor}\hl{#2}\sethlcolor{yellow}%
+  \ifstrempty{#1}{}{%
+    \todo[color=mwcolor]{#1 [MW]}%
+  }%                  
+}
+\newcommand{\tf}[2]{%
+  \sethlcolor{tfcolor}\hl{#2}\sethlcolor{yellow}%
+  \ifstrempty{#1}{}{%
+    \todo[color=tfcolor]{#1 [TF]}%
+  }%                  
+}
